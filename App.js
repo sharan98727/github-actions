@@ -7,6 +7,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>sharan1234454</Text>
       <Text>iam a frontend developer</Text>
+      <Text>I love my country</Text>
       {/* <StatusBar style='auto' /> */}
     </View>
   );
