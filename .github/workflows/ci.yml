@@ -21,12 +21,6 @@ jobs:
     name: Test - Jest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install modules
-         run: |
-          npm
-      - name: Snapshot Test
-        run: |
-          npm test
-        env:
+      - uses: actions/checkout@v1
+         env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
