@@ -13,12 +13,20 @@ jobs:
       - name: Install npm dependencies
         run: |
           npm install
+      - name: Run tests
+        run: |
+          npm test
 
   test-jest:
     name: Test - Jest
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install modules
+         run: |
+          npm
       - name: Snapshot Test
         run: |
           npm test
+        env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

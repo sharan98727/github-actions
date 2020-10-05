@@ -31,7 +31,7 @@ exports[`renders correctly 1`] = `
       }
     }
   >
-    This is a React Native snapshot
+    This is a React Native
   </Text>
 </View>
 `;
