@@ -24,20 +24,38 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
     "babel-jest": "~25.2.6",
+    "detox": "^17.8.1",
     "eslint": "^7.10.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.21.2",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "react-test-renderer": "~16.13.1",
-    "typescript": "^4.0.3"
+    "react-test-renderer": "~16.13.1"
   },
   "jest": {
     "preset": "react-native"
   },
-  "private": true
+  "private": true,
+  "detox": {
+    "configurations": {
+      "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Redmi Note 5"
+        }
+      },
+      "android.emu.release": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Redmi Note 5"
+        }
+      }
+    }
+  }
 }

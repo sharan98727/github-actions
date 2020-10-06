@@ -6,14 +6,21 @@ buildscript {
         minSdkVersion = 21
         compileSdkVersion = 29
         targetSdkVersion = 29
+        // detox test [if not working put the latest version]
+        ext.kotlinVersion = '1.3.0' 
     }
     repositories {
         google()
         jcenter()
+        maven {
+            // All of Detox' artifacts are provided via the npm module
+            url "$rootDir/../node_modules/detox/Detox-android"
+        }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:3.5.3")
-
+        // detox test
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion" 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

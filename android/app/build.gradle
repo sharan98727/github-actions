@@ -136,6 +136,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        // added from documentation for detox test
+        testBuildType System.getProperty('testBuildType', 'debug')  // This will later be used to control the test apk build type
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     splits {
         abi {
@@ -198,6 +201,8 @@ dependencies {
         exclude group:'com.facebook.flipper'
     }
     addUnimodulesDependencies()
+    /// change we added for detox test
+    androidTestImplementation('com.wix:detox:+')
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
